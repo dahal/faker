@@ -1,4 +1,6 @@
 module Faker
+  SSN_REGEX = /(?!(000|666|9))\d{3}(-|\s)?(?!00)\d{2}(-|\s)?(?!0000)\d{4}/
+
   class Number < Base
     class << self
       def number(digits)
@@ -13,6 +15,13 @@ module Faker
 
       def digit
         (rand() * 9).round.to_s
+      end
+
+      def ssn
+        loop do
+          val = numerify('###-##-####')
+          return val if SSN_REGEX =~ val
+        end
       end
 
       def hexadecimal(digits)
