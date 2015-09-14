@@ -304,6 +304,8 @@ Faker::Avatar.image("my-own-slug", "50x50", "bmp") #=> "http://robohash.org/my-o
 ----------------
 
 ```ruby
+# Social Security Number
+Faker::Number.ssn #=> "798-33-1382"
 
 # Required parameter: digits
 Faker::Number.number(10) #=> "1968353479"
